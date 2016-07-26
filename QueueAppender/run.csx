@@ -26,7 +26,7 @@ public static void Run(string myQueueItem, TraceWriter log)
        appendBlob.CreateOrReplace();
     }
     
-    using (var stream = new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(myQueueItem + Environment.NewLine())))
+    using (var stream = new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(myQueueItem + Environment.NewLine))
     {
        appendBlob.AppendBlock(stream);
     }
