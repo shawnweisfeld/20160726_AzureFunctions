@@ -1,6 +1,7 @@
 #r "Microsoft.WindowsAzure.Storage"
 
 using System;
+using System.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -9,8 +10,8 @@ public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
     
-    string accName = "<myStorageAccountName>";
-    string accKey = "<myStorageAccountKey>";
+    string accName = ConfigurationManager.AppSettings["queueStorageName"];
+    string accKey = ConfigurationManager.AppSettings["queueStorageKey"];
 
     StorageCredentials creds = new StorageCredentials(accName, accKey);
     CloudStorageAccount strAcc = new CloudStorageAccount(creds, true);
