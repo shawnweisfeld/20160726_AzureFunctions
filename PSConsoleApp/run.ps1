@@ -1,1 +1,1 @@
-.\ConsoleApp.exe
+.\PSConsoleApp\ConsoleApp.exe
